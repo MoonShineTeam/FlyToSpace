@@ -2,4 +2,5 @@
     <string name="app_name">FlyToSpace</string>
     <string name="start">Играть</string>
     <string name="bg">bg</string>
+    <string name="game_map">Здесь должна быть карта</string>
 </resources>

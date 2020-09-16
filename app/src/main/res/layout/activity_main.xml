@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="@string/bg"
-            app:srcCompat="@drawable/bg" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg" />
 
     </LinearLayout>
 
@@ -41,6 +42,7 @@
             android:background="@color/btnStartColor"
             android:minWidth="150dip"
             android:minHeight="50dip"
+            android:onClick="btnStartOnClick"
             android:text="@string/start"
             android:textSize="24sp" />
     </LinearLayout>
