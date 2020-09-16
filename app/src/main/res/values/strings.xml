@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FlyToSpace</string>
+    <string name="start">Играть</string>
+    <string name="bg">bg</string>
 </resources>
