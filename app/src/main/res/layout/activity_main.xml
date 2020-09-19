@@ -32,18 +32,21 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55">
+        app:layout_constraintVertical_bias="0.65">
 
         <Button
             android:id="@+id/btnStart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/btnStartColor"
+            android:background="@drawable/rounded"
+            android:fontFamily="@font/obelix_pro"
             android:minWidth="150dip"
             android:minHeight="50dip"
             android:onClick="btnStartOnClick"
             android:text="@string/start"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="24sp" />
     </LinearLayout>
 

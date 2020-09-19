@@ -30,10 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnStartOnClick(View view) {
         Intent intent = new Intent(this, GameMap.class);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
+//        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+        ActivityOptions option  = ActivityOptions.makeCustomAnimation(this,
+                R.anim.fade_in, R.anim.fade_out);
+        Bundle bundle = option.toBundle();
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         Button btnStart = findViewById(R.id.btnStart);
         btnStart.startAnimation(animation);
-        startActivity(intent);
+        startActivity(intent, bundle);
     }
 }
