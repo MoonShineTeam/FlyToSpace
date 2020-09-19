@@ -3,6 +3,8 @@ package ru.moonshine.flytospace;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorSet;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -24,25 +26,14 @@ public class MainActivity extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-        final Animation animScale = AnimationUtils.loadAnimation(this, R.anim.scale);
-        final Button btnScale = (Button)findViewById(R.id.btnStart);
-        btnScale.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(final View v) {
-                v.startAnimation(animScale);
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        setContentView(R.layout.game_map);
-                    }
-                }, 250);
-            }
-        });
     }
 
     public void btnStartOnClick(View view) {
-        setContentView(R.layout.game_map);
+        Intent intent = new Intent(this, GameMap.class);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
+        Button btnStart = findViewById(R.id.btnStart);
+        btnStart.startAnimation(animation);
+        startActivity(intent);
     }
 }
