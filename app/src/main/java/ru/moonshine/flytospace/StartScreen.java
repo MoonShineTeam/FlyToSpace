@@ -3,8 +3,11 @@ package ru.moonshine.flytospace;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,7 +30,7 @@ public class StartScreen extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         animation.setStartOffset(0);
         animation.setDuration(1000);
-        ImageView bg = findViewById(R.id.bg);
+        View bg = findViewById(R.id.start_screen_layout);
         bg.startAnimation(animation);
     }
 
@@ -42,6 +45,20 @@ public class StartScreen extends AppCompatActivity {
          */
         Bundle bundle = option.toBundle();
         startActivity(intent, bundle);
-        finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exitTitle)
+                .setMessage(R.string.exitMessage)
+                .setNegativeButton(R.string.no, null)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).create().show();
+    }
+
 }

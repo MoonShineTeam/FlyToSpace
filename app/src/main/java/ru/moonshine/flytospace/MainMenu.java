@@ -28,16 +28,6 @@ public class MainMenu extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.exitTitle)
-                .setMessage(R.string.exitMessage)
-                .setNegativeButton(R.string.no, null)
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                }).create().show();
+        super.onBackPressed();
     }
 }
