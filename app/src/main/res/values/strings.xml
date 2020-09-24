@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">FlyToSpace</string>
-    <string name="start">Играть</string>
-    <string name="bg">bg</string>
+    <string name="exitTitle">Выйти из приложения?</string>
+    <string name="exitMessage">Действительно выйти из приложения?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="main_menu">Здесь будет меню</string>
     <string name="game_map">Здесь должна быть карта</string>
 </resources>
