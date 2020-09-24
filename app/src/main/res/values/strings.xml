@@ -6,4 +6,5 @@
     <string name="no">Нет</string>
     <string name="main_menu">Здесь будет меню</string>
     <string name="game_map">Здесь должна быть карта</string>
+    <string name="bg_start_screen">bg_start_screen</string>
 </resources>
