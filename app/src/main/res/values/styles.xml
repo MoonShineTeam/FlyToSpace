@@ -6,4 +6,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="MainMenuText">
+        <item name="android:textSize">26sp</item>
+        <item name="android:fontFamily">@font/obelix_pro</item>
+    </style>
 </resources>
