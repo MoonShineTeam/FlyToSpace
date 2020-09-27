@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/StartGameLayout">
 
             <ImageView
-                android:id="@+id/orange_planet"
+                android:id="@+id/orange_planet1"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:contentDescription="@string/bg_main_menu"
@@ -89,9 +89,9 @@
                 android:text="@string/continue_game"
                 android:textAppearance="@style/MainMenuText"
                 android:textColor="@color/orange"
-                app:layout_constraintBottom_toBottomOf="@+id/orange_planet"
-                app:layout_constraintStart_toStartOf="@+id/orange_planet"
-                app:layout_constraintTop_toTopOf="@+id/orange_planet" />
+                app:layout_constraintBottom_toBottomOf="@+id/orange_planet1"
+                app:layout_constraintStart_toStartOf="@+id/orange_planet1"
+                app:layout_constraintTop_toTopOf="@+id/orange_planet1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
