@@ -22,11 +22,6 @@ public class MainMenu extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
     public void startGameLayoutOnClick(View view) {
         layoutClickAnimation(view);
         Intent intent = new Intent(this, GameMap.class);
@@ -44,8 +39,14 @@ public class MainMenu extends AppCompatActivity {
         layoutClickAnimation(view);
     }
 
+    public void backArrowOnClick(View view) {
+        layoutClickAnimation(view);
+        super.onBackPressed();
+    }
+
     private void layoutClickAnimation(View view) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         view.startAnimation(animation);
     }
+
 }
