@@ -8,8 +8,8 @@
     android:orientation="horizontal"
     tools:context=".StartScreen">
 
-    <RelativeLayout
-        android:id="@+id/start_screen_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BGLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,158 +23,177 @@
 
         <ImageView
             android:id="@+id/bg_lights"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="274dp"
+            android:layout_height="239dp"
+            android:layout_marginBottom="130dp"
             android:contentDescription="@string/bg_start_screen"
             android:scaleType="centerInside"
-            android:src="@drawable/bg_lights" />
+            android:src="@drawable/bg_lights"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bg"
+            app:layout_constraintStart_toStartOf="@+id/bg"
+            app:layout_constraintTop_toTopOf="@+id/bg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
-            android:id="@+id/planets"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/red_planet"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="172dp"
-                android:layout_marginTop="39dp"
-                android:layout_marginEnd="409dp"
-                android:layout_marginBottom="222dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/red_planet" />
-
-            <ImageView
-                android:id="@+id/bluePlanet"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="533dp"
-                android:layout_marginTop="230dp"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginBottom="-19dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/blue_planet" />
-
-            <ImageView
-                android:id="@+id/orange_planet_left"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="244dp"
-                android:layout_marginEnd="432dp"
-                android:layout_marginBottom="-27dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/orange_planet" />
-
-            <ImageView
-                android:id="@+id/orange_planet_right"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="438dp"
-                android:layout_marginTop="-50dp"
-                android:layout_marginEnd="42dp"
-                android:layout_marginBottom="210dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/orange_planet" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/clouds"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/grey_cloud1"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="301dp"
-                android:layout_marginEnd="362dp"
-                android:layout_marginBottom="-40dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/bg_clouds_grey" />
-
-            <ImageView
-                android:id="@+id/grey_cloud2"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="-64dp"
-                android:layout_marginBottom="229dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/bg_clouds_grey" />
-
-            <ImageView
-                android:id="@+id/white_cloud1"
-                android:layout_width="240dp"
-                android:layout_height="144dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="449dp"
-                android:layout_marginTop="316dp"
-                android:layout_marginEnd="42dp"
-                android:layout_marginBottom="-49dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/bg_clouds_white" />
-
-            <ImageView
-                android:id="@+id/white_cloud2"
-                android:layout_width="240dp"
-                android:layout_height="144dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="76dp"
-                android:layout_marginTop="90dp"
-                android:layout_marginEnd="415dp"
-                android:layout_marginBottom="177dp"
-                android:contentDescription="@string/bg_start_screen"
-                app:srcCompat="@drawable/bg_clouds_white" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tapToContinueText"
-        android:layout_width="457dp"
-        android:layout_height="38dp"
-        android:fontFamily="@font/obelix_pro"
-        android:lineSpacingExtra="10sp"
-        android:text="@string/tapToContinue"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TextLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/BGLayout"
+        app:layout_constraintEnd_toEndOf="@+id/BGLayout"
+        app:layout_constraintStart_toStartOf="@+id/BGLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.75">
+
+        <TextView
+            android:id="@+id/tapToContinueText"
+            android:layout_width="457dp"
+            android:layout_height="38dp"
+            android:fontFamily="@font/russo_one"
+            android:text="@string/tapToContinue"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TopRightCorner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/TextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TextLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/grey_cloud1"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/orange_planet1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/orange_planet1"
+            app:layout_constraintTop_toTopOf="@+id/orange_planet1"
+            app:srcCompat="@drawable/bg_clouds_grey" />
+
+        <ImageView
+            android:id="@+id/orange_planet1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/orange_planet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TopLeftCorner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/TextLayout"
+        app:layout_constraintEnd_toEndOf="@+id/TextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/white_cloud1"
+            android:layout_width="180dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/blue_planet"
+            app:layout_constraintEnd_toEndOf="@+id/blue_planet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/blue_planet"
+            app:srcCompat="@drawable/bg_clouds_white" />
+
+        <ImageView
+            android:id="@+id/blue_planet"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/blue_planet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BottomLeftCorner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="300dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TextLayout"
+        app:layout_constraintEnd_toEndOf="@+id/TextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TextLayout">
+
+        <ImageView
+            android:id="@+id/grey_cloud2"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="150dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/red_planet"
+            app:layout_constraintStart_toStartOf="@+id/red_planet"
+            app:layout_constraintTop_toTopOf="@+id/red_planet"
+            app:srcCompat="@drawable/bg_clouds_grey" />
+
+        <ImageView
+            android:id="@+id/red_planet"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/red_planet" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BottomRightLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TextLayout"
+        app:layout_constraintTop_toTopOf="@+id/TextLayout">
+
+        <ImageView
+            android:id="@+id/blue_planet2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/blue_planet" />
+
+        <ImageView
+            android:id="@+id/white_cloud2"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/bg_start_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/blue_planet2"
+            app:layout_constraintEnd_toEndOf="@+id/blue_planet2"
+            app:layout_constraintTop_toTopOf="@+id/blue_planet2"
+            app:srcCompat="@drawable/bg_clouds_white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

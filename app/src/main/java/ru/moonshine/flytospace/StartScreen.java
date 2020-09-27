@@ -12,6 +12,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
+import android.widget.TextView;
 
 public class StartScreen extends AppCompatActivity {
 
@@ -26,9 +28,12 @@ public class StartScreen extends AppCompatActivity {
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         animation.setStartOffset(0);
-        animation.setDuration(1000);
-        View bg = findViewById(R.id.start_screen_layout);
+        animation.setDuration(500);
+        View bg = findViewById(R.id.BGLayout);
         bg.startAnimation(animation);
+
+        TextView textView = findViewById(R.id.tapToContinueText);
+        textView.startAnimation(tapToContinueScaleAnimation());
     }
 
     public void bgLayoutOnClick(View view) {
@@ -40,8 +45,10 @@ public class StartScreen extends AppCompatActivity {
             Button btnStart = findViewById(R.id.btnStart);
             btnStart.startAnimation(animation);
          */
+        TextView textView = findViewById(R.id.tapToContinueText);
         Bundle bundle = option.toBundle();
         startActivity(intent, bundle);
+        textView.clearAnimation();
     }
 
     @Override
@@ -58,4 +65,21 @@ public class StartScreen extends AppCompatActivity {
                 }).create().show();
     }
 
+    @Override
+    protected void onRestart() {
+        TextView textView = findViewById(R.id.tapToContinueText);
+        textView.startAnimation(tapToContinueScaleAnimation());
+        super.onRestart();
+    }
+
+    private Animation tapToContinueScaleAnimation() {
+        Animation anim = new ScaleAnimation(1,0.9f,
+                1,0.9f,
+                ScaleAnimation.RELATIVE_TO_SELF, 0.5f,
+                ScaleAnimation.RELATIVE_TO_SELF,0.5f);
+        anim.setDuration(1000);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        return anim;
+    }
 }
