@@ -1,10 +1,7 @@
 package ru.moonshine.flytospace;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -26,18 +22,31 @@ public class MainMenu extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.exitTitle)
-                .setMessage(R.string.exitMessage)
-                .setNegativeButton(R.string.no, null)
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                }).create().show();
+    public void startGameLayoutOnClick(View view) {
+        layoutClickAnimation(view);
+        Intent intent = new Intent(this, GameMap.class);
+        ActivityOptions option  = ActivityOptions.makeCustomAnimation(this,
+                R.anim.fade_in, R.anim.fade_out);
+        Bundle bundle = option.toBundle();
+        startActivity(intent, bundle);
     }
+
+    public void continueFameLayoutOnClick(View view) {
+        layoutClickAnimation(view);
+    }
+
+    public void startTestLayoutOnClick(View view) {
+        layoutClickAnimation(view);
+    }
+
+    public void backArrowOnClick(View view) {
+        layoutClickAnimation(view);
+        super.onBackPressed();
+    }
+
+    private void layoutClickAnimation(View view) {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
+        view.startAnimation(animation);
+    }
+
 }
