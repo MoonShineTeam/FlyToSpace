@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/bg_start_screen"
             android:scaleType="centerCrop"
-            android:src="@drawable/bg_start" />
+            android:src="@drawable/ss_bg" />
 
         <ImageView
             android:id="@+id/bg_lights"
@@ -28,7 +28,7 @@
             android:layout_marginBottom="130dp"
             android:contentDescription="@string/bg_start_screen"
             android:scaleType="centerInside"
-            android:src="@drawable/bg_lights"
+            android:src="@drawable/ss_lights"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/bg"
             app:layout_constraintStart_toStartOf="@+id/bg"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/orange_planet1"
             app:layout_constraintTop_toTopOf="@+id/orange_planet1"
-            app:srcCompat="@drawable/bg_clouds_grey" />
+            app:srcCompat="@drawable/ss_clouds_grey" />
 
         <ImageView
             android:id="@+id/orange_planet1"
@@ -91,7 +91,7 @@
             android:contentDescription="@string/bg_start_screen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/orange_planet" />
+            app:srcCompat="@drawable/mm_orange_planet" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -117,7 +117,7 @@
             app:layout_constraintEnd_toEndOf="@+id/blue_planet"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/blue_planet"
-            app:srcCompat="@drawable/bg_clouds_white" />
+            app:srcCompat="@drawable/ss_clouds_white" />
 
         <ImageView
             android:id="@+id/blue_planet"
@@ -126,7 +126,7 @@
             android:contentDescription="@string/bg_start_screen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/blue_planet" />
+            app:srcCompat="@drawable/mm_blue_planet" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -150,7 +150,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/red_planet"
             app:layout_constraintStart_toStartOf="@+id/red_planet"
             app:layout_constraintTop_toTopOf="@+id/red_planet"
-            app:srcCompat="@drawable/bg_clouds_grey" />
+            app:srcCompat="@drawable/ss_clouds_grey" />
 
         <ImageView
             android:id="@+id/red_planet"
@@ -159,7 +159,7 @@
             android:contentDescription="@string/bg_start_screen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/red_planet" />
+            app:srcCompat="@drawable/mm_red_planet" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -180,7 +180,7 @@
             android:contentDescription="@string/bg_start_screen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/blue_planet" />
+            app:srcCompat="@drawable/mm_blue_planet" />
 
         <ImageView
             android:id="@+id/white_cloud2"
@@ -192,7 +192,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/blue_planet2"
             app:layout_constraintEnd_toEndOf="@+id/blue_planet2"
             app:layout_constraintTop_toTopOf="@+id/blue_planet2"
-            app:srcCompat="@drawable/bg_clouds_white" />
+            app:srcCompat="@drawable/ss_clouds_white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
