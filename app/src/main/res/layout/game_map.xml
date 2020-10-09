@@ -43,7 +43,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lvl1"
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent">
 
                 <ImageView
@@ -101,7 +101,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lvl3"
-                android:layout_width="300dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -129,9 +129,57 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="300dp"
+                android:id="@+id/lvl4"
+                android:layout_width="400dp"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:id="@+id/red_planet"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:contentDescription="@string/game_map"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.26"
+                    app:srcCompat="@drawable/gm_red_planet" />
+
+                <RatingBar
+                    android:id="@+id/lvl4_stars"
+                    style="@style/RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/red_planet"
+                    app:layout_constraintStart_toStartOf="@+id/red_planet"
+                    app:layout_constraintTop_toBottomOf="@+id/red_planet" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lvl5"
+                android:layout_width="400dp"
+                android:layout_height="match_parent">
+
+                <RatingBar
+                    android:id="@+id/lvl5_stars"
+                    style="@style/RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/saturn"
+                    app:layout_constraintStart_toStartOf="@+id/saturn"
+                    app:layout_constraintTop_toBottomOf="@+id/saturn" />
+
+                <ImageView
+                    android:id="@+id/saturn"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:contentDescription="@string/game_map"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:srcCompat="@drawable/gm_saturn" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
