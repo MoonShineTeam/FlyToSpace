@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+
+import ru.moonshine.flytospace.source.Utils;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -45,8 +45,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void layoutClickAnimation(View view) {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
-        view.startAnimation(animation);
+        /*Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
+        view.startAnimation(animation);*/
+        Utils.startViewAnimation(this, view, R.anim.scale);
     }
 
 }
