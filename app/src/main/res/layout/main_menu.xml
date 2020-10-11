@@ -16,7 +16,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg_main_menu" />
+        app:srcCompat="@drawable/mm_bg" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ButtonsLayout"
@@ -46,7 +46,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/blue_planet" />
+                app:srcCompat="@drawable/mm_blue_planet" />
 
             <TextView
                 android:id="@+id/start_game"
@@ -79,7 +79,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/orange_planet" />
+                app:srcCompat="@drawable/mm_orange_planet" />
 
             <TextView
                 android:id="@+id/continue_game"
@@ -111,7 +111,7 @@
                 android:contentDescription="@string/bg_main_menu"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/red_planet" />
+                app:srcCompat="@drawable/mm_red_planet" />
 
             <TextView
                 android:id="@+id/start_test"
