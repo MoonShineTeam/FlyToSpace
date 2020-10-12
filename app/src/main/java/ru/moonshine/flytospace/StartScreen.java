@@ -1,19 +1,16 @@
 package ru.moonshine.flytospace;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
+
+import ru.moonshine.flytospace.source.Utils;
 
 public class StartScreen extends AppCompatActivity {
 
@@ -21,10 +18,7 @@ public class StartScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
-
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Utils.setFullScreenMode(this);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         animation.setStartOffset(0);
@@ -37,17 +31,8 @@ public class StartScreen extends AppCompatActivity {
     }
 
     public void bgLayoutOnClick(View view) {
-        Intent intent = new Intent(this, MainMenu.class);
-        ActivityOptions option  = ActivityOptions.makeCustomAnimation(this,
-                R.anim.fade_in, R.anim.fade_out);
-        /* Анимация кнопки, чтобы не забыть)))
-            Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
-            Button btnStart = findViewById(R.id.btnStart);
-            btnStart.startAnimation(animation);
-         */
         TextView textView = findViewById(R.id.tapToContinueText);
-        Bundle bundle = option.toBundle();
-        startActivity(intent, bundle);
+        Utils.intentAnimation(this, MainMenu.class, R.anim.fade_in, R.anim.fade_out);
         textView.clearAnimation();
     }
 
