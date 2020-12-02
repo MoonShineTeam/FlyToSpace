@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/gm_bg" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/backArrow"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="10dp"
