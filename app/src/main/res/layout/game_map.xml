@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/gm_bg" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/backArrow"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="10dp"
@@ -52,7 +52,7 @@
                     android:layout_height="125dp"
                     android:layout_marginBottom="60dp"
                     android:contentDescription="@string/game_map"
-                    android:onClick="onLvlClick"
+                    android:onClick="onLvl1Click"
                     android:src="@drawable/gm_earth"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
