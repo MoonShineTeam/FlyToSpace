@@ -1,6 +1,7 @@
 package ru.moonshine.flytospace;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ru.moonshine.flytospace.adapters.AnswersAdapter;
 import ru.moonshine.flytospace.model.Task;
 import ru.moonshine.flytospace.source.Utils;
 
@@ -41,5 +43,8 @@ public class MainGameActivity extends AppCompatActivity {
         taskTextView.setText(task.getTaskText());
         //TODO: Здесь будет работа с графическими элементами
 
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.answers_list);
+        AnswersAdapter adapter = new AnswersAdapter(this, answers);
+        recyclerView.setAdapter(adapter);
     }
 }
