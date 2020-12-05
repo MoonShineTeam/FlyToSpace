@@ -27,7 +27,7 @@ public class Level1 extends AppCompatActivity {
         Utils.setFullScreenMode(this);
     }
 
-    String jsonText = readText(this.getApplicationContext(), R.raw.levels);
+    /*String jsonText = readText(this.getApplicationContext(), R.raw.levels);
     JSONObject obj = new JSONObject(jsonText);
 
 
@@ -36,12 +36,11 @@ public class Level1 extends AppCompatActivity {
         InputStream is = context.getResources().openRawResource(resId);
         BufferedReader br= new BufferedReader(new InputStreamReader(is));
         StringBuilder sb= new StringBuilder();
-        String s= null;
+        String s = null;
         while((  s = br.readLine())!=null) {
             sb.append(s);
             sb.append("\n");
         }
         return sb.toString();
-    }
-
+    }*/
 }

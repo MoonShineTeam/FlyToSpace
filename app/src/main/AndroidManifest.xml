@@ -8,14 +8,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".MainGameActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".GameMap"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".MainMenu"
-            android:screenOrientation="landscape"/>
-
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MainMenu"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".StartScreen"
             android:screenOrientation="landscape">

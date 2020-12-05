@@ -1,0 +1,17 @@
+<tasks>
+    <task id="0" type="EASY">
+        <text>Изначально в космос запустили 3 ракеты, позже запустили ещё одну ракету. Сколько всего запустили ракет?</text>
+        <style>ROCKET</style>
+        <equations>
+            <equation>
+                3+1=?
+            </equation>
+        </equations>
+        <answers>
+            <answer isTrue="1">4</answer>
+            <answer isTrue="0">3</answer>
+            <answer isTrue="0">5</answer>
+            <answer isTrue="0">2</answer>
+        </answers>
+    </task>
+</tasks>
