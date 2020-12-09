@@ -26,7 +26,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.answer_item, parent, false);
+        View view = inflater.inflate(R.layout.answer_boxes, parent, false);
         return new ViewHolder(view);
     }
 
@@ -48,7 +48,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
         @SuppressLint("ResourceType")
         ViewHolder(View view) {
             super(view);
-            recyclerView = view.findViewById(R.id.answer_items);
+            recyclerView = view.findViewById(R.id.answer_box_items);
         }
     }
 

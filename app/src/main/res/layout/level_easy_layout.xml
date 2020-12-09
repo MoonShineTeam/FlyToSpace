@@ -13,26 +13,37 @@
         app:srcCompat="@drawable/level1_bg"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/task_easy_textview"
-        android:layout_width="600dp"
-        android:layout_height="100dp"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/level1_bg"
-        app:layout_constraintEnd_toEndOf="@+id/level1_bg"
-        app:layout_constraintStart_toStartOf="@+id/level1_bg"
-        app:layout_constraintTop_toTopOf="@+id/level1_bg"
-        tools:ignore="MissingConstraints" />
-
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/level1_bg"
+        app:layout_constraintTop_toTopOf="@+id/level1_bg"
         tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/task_text_frame"
+            android:padding="10dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="100dp">
+
+            <TextView
+                android:id="@+id/task_easy_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/obelix_pro"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/answers_list"

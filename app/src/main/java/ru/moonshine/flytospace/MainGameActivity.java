@@ -39,7 +39,7 @@ public class MainGameActivity extends AppCompatActivity {
 
         setContentView(R.layout.level_easy_layout);
         Utils.setFullScreenMode(this);
-        taskTextView = findViewById(R.id.task_easy_textview);
+        taskTextView = findViewById(R.id.task_easy_text_view);
         taskTextView.setText(task.getTaskText());
         //TODO: Здесь будет работа с графическими элементами
 
