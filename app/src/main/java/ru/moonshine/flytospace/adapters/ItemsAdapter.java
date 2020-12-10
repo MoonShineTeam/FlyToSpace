@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import ru.moonshine.flytospace.R;
 
-public class AnswerItemsAdapter extends RecyclerView.Adapter<AnswerItemsAdapter.ViewHolder> {
+public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
     private final int count;
 
-    public AnswerItemsAdapter(int count) {
+    public ItemsAdapter(int count) {
         this.count = count;
     }
 

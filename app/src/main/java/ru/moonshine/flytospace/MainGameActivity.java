@@ -8,7 +8,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import ru.moonshine.flytospace.adapters.ItemsAdapter;
 import ru.moonshine.flytospace.adapters.AnswersAdapter;
 import ru.moonshine.flytospace.model.Task;
 import ru.moonshine.flytospace.source.Utils;
@@ -43,8 +47,44 @@ public class MainGameActivity extends AppCompatActivity {
         taskTextView.setText(task.getTaskText());
         //TODO: Здесь будет работа с графическими элементами
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.answers_list);
+        RecyclerView recyclerView = findViewById(R.id.answers_list);
         AnswersAdapter adapter = new AnswersAdapter(this, answers);
         recyclerView.setAdapter(adapter);
+
+        String equation = equations.get(0).trim();
+
+        Pattern numbersPattern = Pattern.compile("([\\d?]+).([\\d?]+).([\\d?]+)");
+        Matcher matcher = numbersPattern.matcher(equation);
+        if (matcher.find()) {
+
+            int firstNumber = !Objects.equals(matcher.group(1), "?")
+                    ? Integer.parseInt(Objects.requireNonNull(matcher.group(1)))
+                    : 0;
+            RecyclerView firstNumberItems = findViewById(R.id.first_number_items);
+            ItemsAdapter firstNumberAdapter = new ItemsAdapter(firstNumber);
+            firstNumberItems.setAdapter(firstNumberAdapter);
+
+            int secondNumber = !Objects.equals(matcher.group(2), "?")
+                    ? Integer.parseInt(Objects.requireNonNull(matcher.group(2)))
+                    : 0;
+            RecyclerView secondNumberItems = findViewById(R.id.second_number_items);
+            ItemsAdapter secondNumberAdapter = new ItemsAdapter(secondNumber);
+            secondNumberItems.setAdapter(secondNumberAdapter);
+
+            int thirdNumber = !Objects.equals(matcher.group(3), "?")
+                    ? Integer.parseInt(Objects.requireNonNull(matcher.group(3)))
+                    : 0;
+            RecyclerView thirdNumberItems = findViewById(R.id.third_number_items);
+            ItemsAdapter thirdNumberAdapter = new ItemsAdapter(thirdNumber);
+            thirdNumberItems.setAdapter(thirdNumberAdapter);
+        }
+
+        Pattern signPattern = Pattern.compile("[\\d?]+(.)[\\d?]+.[\\d?]+");
+        matcher = signPattern.matcher(equation);
+        if (matcher.find()) {
+            String sign = matcher.group(1);
+            TextView signTextView = findViewById(R.id.equation_sign);
+            signTextView.setText(sign);
+        }
     }
 }

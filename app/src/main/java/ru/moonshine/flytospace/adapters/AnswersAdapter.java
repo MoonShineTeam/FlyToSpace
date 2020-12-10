@@ -34,7 +34,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int answer = answersList.get(position);
 
-        AnswerItemsAdapter adapter = new AnswerItemsAdapter(answer);
+        ItemsAdapter adapter = new ItemsAdapter(answer);
         holder.recyclerView.setAdapter(adapter);
     }
 
