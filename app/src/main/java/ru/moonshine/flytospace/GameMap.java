@@ -27,4 +27,11 @@ public class GameMap extends AppCompatActivity {
         Utils.startViewAnimation(this, view, R.anim.scale);
         Utils.intentAnimation(this, MainGameActivity.class, R.anim.fade_in, R.anim.fade_out, tasks.get(0));
     }
+
+    // Нажитие на стрелку назад, которое возвращает пользователя в главное меню
+    public void onClickToMainMenu(View view) {
+        Utils.startViewAnimation(this, view, R.anim.scale);
+        super.onBackPressed();
+    }
+
 }
