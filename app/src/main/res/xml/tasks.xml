@@ -1,5 +1,5 @@
 <tasks>
-    <task id="0" type="EASY">
+    <task id="1" type="EASY">
         <text>Изначально в космос запустили 3 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
         <style>ROCKET</style>
         <equations>
