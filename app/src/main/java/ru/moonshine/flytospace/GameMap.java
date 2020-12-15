@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RatingBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,12 +28,32 @@ public class GameMap extends AppCompatActivity {
         initTaskScores(myPrefs);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        RatingBar bar = (RatingBar) findViewById(R.id.lvl1_stars);
+        SharedPreferences myPrefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
+        initTaskScores(myPrefs);
+    }
+
     public void initTaskScores(SharedPreferences prefs) {
         for (Task task : tasks) {
+            boolean flag = true;
             if (task.getTaskType().equalsIgnoreCase("easy")) {
                 task.setScore(prefs.getInt("task" + task.getId() + "_score", 0));
             }
-        }
+            RatingBar bar = (RatingBar) findViewById(R.id.lvl1_stars);
+            final String PATH = "task" + task.getId() + "_score";
+            bar.setRating(prefs.getInt(PATH, 0));
+            bar = (RatingBar) findViewById(R.id.lvl2_stars);
+            bar.setVisibility(View.INVISIBLE);
+            bar = (RatingBar) findViewById(R.id.lvl3_stars);
+            bar.setVisibility(View.INVISIBLE);
+            bar = (RatingBar) findViewById(R.id.lvl4_stars);
+            bar.setVisibility(View.INVISIBLE);
+            bar = (RatingBar) findViewById(R.id.lvl5_stars);
+            bar.setVisibility(View.INVISIBLE);
+            }
     }
 
     public void onLvl1Click(View view) {
