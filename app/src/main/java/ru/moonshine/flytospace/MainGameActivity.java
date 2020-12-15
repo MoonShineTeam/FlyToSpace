@@ -1,14 +1,20 @@
 package ru.moonshine.flytospace;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -33,7 +39,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Task task;
     private int currentPressedItemIndex;
     private int attempts = 3;
-
+    private int clickedPosition;
     private TextView taskTextView;
 
     @Override
@@ -52,9 +58,13 @@ public class MainGameActivity extends AppCompatActivity {
 
         setContentView(R.layout.level_easy_layout);
         Utils.setFullScreenMode(this);
+
         taskTextView = findViewById(R.id.task_easy_text_view);
         taskTextView.setText(task.getTaskText());
         //TODO: Здесь будет работа с графическими элементами
+
+        // Скрытие кнопки "готово"
+        findViewById(R.id.level_easy_btn_ready).setVisibility(View.INVISIBLE);
 
         final RecyclerView recyclerView = findViewById(R.id.answers_list);
         recyclerView.addOnItemTouchListener(
@@ -64,6 +74,17 @@ public class MainGameActivity extends AppCompatActivity {
                     @SuppressLint({"NewApi", "UseCompatLoadingForDrawables"})
                     @Override
                     public void onItemClick(View view, int position) {
+
+                        clickedPosition = position;
+
+                        if (attempts <= 0) {
+                            findViewById(R.id.level_easy_btn_ready).setVisibility(View.INVISIBLE);
+                            return;
+                        }
+
+                        // Открытие кнопки "готово"
+                        findViewById(R.id.level_easy_btn_ready).setVisibility(View.VISIBLE);
+
                         for (int i = 0; i < recyclerView.getChildCount(); i++) {
                             if (i == position)
                             {
@@ -77,7 +98,6 @@ public class MainGameActivity extends AppCompatActivity {
                                 rvView.findViewById(R.id.answer_box_layout).setBackgroundResource(0);
                             }
                         }
-                        Utils.startViewAnimation(view.getContext(), view, R.anim.scale);
                     }
 
                     @Override
@@ -138,42 +158,115 @@ public class MainGameActivity extends AppCompatActivity {
     // Нажитие на стрелку назад, которое возвращает пользователя на игровую карту
     public void onClickToGameMap(View view) {
         Utils.startViewAnimation(this, view, R.anim.scale);
-        super.onBackPressed();
+        Utils.intentAnimation(this, GameMap.class, R.anim.fade_in, R.anim.fade_out, task);
     }
 
-    @SuppressLint("CommitPrefEdits")
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint({"CommitPrefEdits", "DefaultLocale", "UseCompatLoadingForDrawables"})
     public void readyButtonClick(View view) {
+        // Проигрывание анимации нажатия
         Utils.startViewAnimation(this, view, R.anim.scale);
+
         SharedPreferences myPrefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
         final String PATH = "task" + task.getId() + "_score";
         SharedPreferences.Editor editor = myPrefs.edit();
         if (answers.indexOf(trueAnswer) == currentPressedItemIndex) {
+
+            // Установка зеленой рамки для правильного ответа
+            View rvView = ((RecyclerView) findViewById(R.id.answers_list)).getChildAt(clickedPosition);
+            View answerBoxView = rvView.findViewById(R.id.answer_box_layout);
+            answerBoxView.setBackground(getDrawable(R.drawable.correct_answer_box_shape));
+
+            CharSequence textMessage = "";
+
             switch (attempts) {
                 case 3: {
                     task.setScore(3);
                     editor.putInt(PATH, 3);
                     editor.commit();
+                    textMessage = getText(R.string.threeStarsMessage);
                     break;
                 }
                 case 2: {
                     task.setScore(2);
                     editor.putInt(PATH, 2);
                     editor.commit();
+                    textMessage = getText(R.string.twoStarsMessage);
                     break;
                 }
                 case 1: {
                     task.setScore(1);
                     editor.putInt(PATH, 1);
                     editor.commit();
+                    textMessage = getText(R.string.oneStarMessage);
                     break;
                 }
             }
-            SharedPreferences prefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
-            System.out.println("Твои очки: " + prefs.getInt(PATH, -1));
+
+            Dialog dialog = new Dialog(MainGameActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.task_end_dialog);
+
+            // Установка звезд в диалоговом окне
+            RatingBar ratingBar = dialog.findViewById(R.id.task_end_stars);
+            ratingBar.setRating(task.getScore());
+
+            // Установка текста в диалоговом окне
+            TextView textView = dialog.findViewById(R.id.task_end_message);
+            textView.setText(textMessage);
+
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.setCancelable(false); // окно нельзя закрыть кнопкой назад
+            dialog.show();
         }
         else {
+            // Установка красной рамки для неправильного ответа
+            View rvView = ((RecyclerView) findViewById(R.id.answers_list)).getChildAt(clickedPosition);
+            View answerBoxView = rvView.findViewById(R.id.answer_box_layout);
+            answerBoxView.setBackground(getDrawable(R.drawable.incorrect_answer_box_shape));
+
             attempts--;
-            System.out.println("Твои очки: " + myPrefs.getInt(PATH, -2));
+
+            if (attempts == 0) {
+                findViewById(R.id.level_easy_btn_ready).setVisibility(View.INVISIBLE);
+                task.setScore(0);
+                editor.putInt(PATH, 0);
+                editor.commit();
+
+                // Создание диалогового окна
+                Dialog dialog = new Dialog(MainGameActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.task_end_dialog);
+
+                // Установка звезд в диалоговом окне
+                RatingBar ratingBar = dialog.findViewById(R.id.task_end_stars);
+                ratingBar.setRating(task.getScore());
+
+                // Установка текста в диалоговом окне
+                TextView textView = dialog.findViewById(R.id.task_end_message);
+                textView.setText(getText(R.string.zeroStarsMessage));
+
+                //
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.setCancelable(false); // окно нельзя закрыть кнопкой назад
+                dialog.show();
+
+                return;
+            }
         }
+
+        TextView attemptsTextView = findViewById(R.id.level_easy_attempts);
+        attemptsTextView.setText(String.format("Попытка %d/3", 4 - attempts));
+    }
+
+    public void onClickToNextTask(View view) {
+        // Проигрывание анимации нажатия
+        Utils.startViewAnimation(this, view, R.anim.scale);
+    }
+
+    public void onClickRestartLevel1(View view) {
+        // Проигрывание анимации нажатия
+        Utils.startViewAnimation(this, view, R.anim.scale);
+        Utils.intentAnimation(this, MainGameActivity.class, R.anim.fade_in, R.anim.fade_out, task);
     }
 }

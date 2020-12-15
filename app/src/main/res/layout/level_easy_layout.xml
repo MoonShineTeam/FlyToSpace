@@ -36,11 +36,13 @@
                 android:layout_marginTop="5dp"
                 android:onClick="onClickToGameMap"
                 android:src="@drawable/arrow"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -64,16 +66,30 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/level_easy_attempts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/obelix_pro"
+                android:text="Попытка 1/3"
+                android:textColor="@color/white"
+                android:textSize="24sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/level_easy_btn_ready"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/obelix_pro"
                 android:onClick="readyButtonClick"
                 android:text="Готово"
                 android:textColor="@color/white"
                 android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <androidx.constraintlayout.widget.ConstraintLayout

@@ -64,7 +64,7 @@ public class GameMap extends AppCompatActivity {
     // Нажитие на стрелку назад, которое возвращает пользователя в главное меню
     public void onClickToMainMenu(View view) {
         Utils.startViewAnimation(this, view, R.anim.scale);
-        super.onBackPressed();
+        Utils.intentAnimation(this, MainMenu.class, R.anim.fade_in, R.anim.fade_out);
     }
 
 }
