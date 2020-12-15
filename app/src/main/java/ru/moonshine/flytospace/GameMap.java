@@ -1,5 +1,7 @@
 package ru.moonshine.flytospace;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,16 @@ public class GameMap extends AppCompatActivity {
         Utils.setFullScreenMode(this);
         XmlResourceParser parser = getResources().getXml(R.xml.tasks);
         tasks = Utils.readXmlTasks(parser);
+        SharedPreferences myPrefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
+        initTaskScores(myPrefs);
+    }
+
+    public void initTaskScores(SharedPreferences prefs) {
+        for (Task task : tasks) {
+            if (task.getTaskType().equalsIgnoreCase("easy")) {
+                task.setScore(prefs.getInt("task" + task.getId() + "_score", 0));
+            }
+        }
     }
 
     public void onLvl1Click(View view) {

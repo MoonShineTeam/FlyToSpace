@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +30,8 @@ public class MainGameActivity extends AppCompatActivity {
     private String style;
     private int trueAnswer;
     private Task task;
+    private int currentPressedItemIndex;
+    private int attempts = 3;
 
     private TextView taskTextView;
 
@@ -43,6 +47,7 @@ public class MainGameActivity extends AppCompatActivity {
         answers = task.getAnswers();
         equations = task.getEquations();
         trueAnswer = task.getTrueAnswer();
+        attempts = 3;
 
         setContentView(R.layout.level_easy_layout);
         Utils.setFullScreenMode(this);
@@ -63,6 +68,7 @@ public class MainGameActivity extends AppCompatActivity {
                             {
                                 View answerBoxView = view.findViewById(R.id.answer_box_layout);
                                 answerBoxView.setBackground(getDrawable(R.drawable.answer_box_shape));
+                                currentPressedItemIndex = i;
                             }
                             else
                             {
@@ -134,4 +140,39 @@ public class MainGameActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @SuppressLint("CommitPrefEdits")
+    public void readyButtonClick(View view) {
+        Utils.startViewAnimation(this, view, R.anim.scale);
+        SharedPreferences myPrefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
+        final String PATH = "task" + task.getId() + "_score";
+        SharedPreferences.Editor editor = myPrefs.edit();
+        if (answers.indexOf(trueAnswer) == currentPressedItemIndex) {
+            switch (attempts) {
+                case 3: {
+                    task.setScore(3);
+                    editor.putInt(PATH, 3);
+                    editor.commit();
+                    break;
+                }
+                case 2: {
+                    task.setScore(2);
+                    editor.putInt(PATH, 2);
+                    editor.commit();
+                    break;
+                }
+                case 1: {
+                    task.setScore(1);
+                    editor.putInt(PATH, 1);
+                    editor.commit();
+                    break;
+                }
+            }
+            SharedPreferences prefs = getSharedPreferences("tasks", Context.MODE_PRIVATE);
+            System.out.println("Твои очки: " + prefs.getInt(PATH, -1));
+        }
+        else {
+            attempts--;
+            System.out.println("Твои очки: " + myPrefs.getInt(PATH, -2));
+        }
+    }
 }
