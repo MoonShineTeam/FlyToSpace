@@ -3,6 +3,7 @@ package ru.moonshine.flytospace;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
 
 import ru.moonshine.flytospace.adapters.ItemsAdapter;
 import ru.moonshine.flytospace.adapters.AnswersAdapter;
+import ru.moonshine.flytospace.listeners.RecyclerItemClickListener;
 import ru.moonshine.flytospace.model.Task;
 import ru.moonshine.flytospace.source.Utils;
 
@@ -48,7 +50,35 @@ public class MainGameActivity extends AppCompatActivity {
         taskTextView.setText(task.getTaskText());
         //TODO: Здесь будет работа с графическими элементами
 
-        RecyclerView recyclerView = findViewById(R.id.answers_list);
+        final RecyclerView recyclerView = findViewById(R.id.answers_list);
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this,
+                        recyclerView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                    @SuppressLint({"NewApi", "UseCompatLoadingForDrawables"})
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                            if (i == position)
+                            {
+                                View answerBoxView = view.findViewById(R.id.answer_box_layout);
+                                answerBoxView.setBackground(getDrawable(R.drawable.answer_box_shape));
+                            }
+                            else
+                            {
+                                View rvView = recyclerView.getChildAt(i);
+                                rvView.findViewById(R.id.answer_box_layout).setBackgroundResource(0);
+                            }
+                        }
+                        Utils.startViewAnimation(view.getContext(), view, R.anim.scale);
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                })
+        );
         AnswersAdapter adapter = new AnswersAdapter(this, answers);
         recyclerView.setAdapter(adapter);
 
