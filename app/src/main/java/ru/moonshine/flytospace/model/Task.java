@@ -13,6 +13,7 @@ public class Task implements Parcelable {
     private ArrayList<String> equations;
     private String style;
     private int trueAnswer;
+    private int score;
 
     public Task() {}
 
@@ -25,6 +26,7 @@ public class Task implements Parcelable {
         this.equations = equations;
         this.style = style;
         this.trueAnswer = trueAnswer;
+        this.score = 0;
     }
 
     protected Task(Parcel in) {
@@ -37,6 +39,7 @@ public class Task implements Parcelable {
         in.readStringList(equations);
         style = in.readString();
         trueAnswer = in.readInt();
+        score = in.readInt();
     }
 
     public static final Creator<Task> CREATOR = new Creator<Task>() {
@@ -121,5 +124,14 @@ public class Task implements Parcelable {
         dest.writeStringList(equations);
         dest.writeString(style);
         dest.writeInt(trueAnswer);
+        dest.writeInt(score);
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
