@@ -40,6 +40,9 @@ public class GameMap extends AppCompatActivity {
         levels.add(new Level(this, 0, tasks.get(0), getDrawable(R.drawable.gm_earth), 125, 125));
         levels.add(new Level(this, 1, tasks.get(1), getDrawable(R.drawable.gm_moon), 65, 65));
         levels.add(new Level(this, 2, tasks.get(2), getDrawable(R.drawable.gm_mars), 110, 110));
+        levels.add(new Level(this, 3, tasks.get(3), getDrawable(R.drawable.gm_red_planet), 200, 200));
+//        levels.add(new Level(this, 4, tasks.get(4), getDrawable(R.drawable.gm_saturn), 170, 170));
+//        levels.add(new Level(this, 5, tasks.get(5), getDrawable(R.drawable.gm_green_planet), 140,140));
 
         // Установка адаптера для уровней игровой карты
         RecyclerView recyclerView = findViewById(R.id.levels_list);
