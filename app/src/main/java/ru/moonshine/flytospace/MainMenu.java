@@ -20,7 +20,12 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void continueFameLayoutOnClick(View view) {
-        Utils.startViewAnimation(this, view, R.anim.scale);
+
+        if (MainGameActivity.lastOpenedTask != null)
+        {
+            Utils.startViewAnimation(this, view, R.anim.scale);
+            Utils.intentAnimation(this, MainGameActivity.class, R.anim.fade_in, R.anim.fade_out, MainGameActivity.lastOpenedTask);
+        }
     }
 
     public void startTestLayoutOnClick(View view) {

@@ -17,172 +17,228 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gm_bg" />
 
-    <ImageView
-        android:id="@+id/backArrow"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:contentDescription="@string/game_map"
-        android:onClick="onClickToMainMenu"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow" />
+        tools:ignore="MissingConstraints">
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/game_map"
+            android:onClick="onClickToMainMenu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/total_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/obelix_pro"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/total_score_star"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/total_score_star"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/gm_star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="60dp"
-        android:scrollbarSize="0dp"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:ignore="MissingConstraints">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/levels_list"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:ignore="MissingConstraints" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lvl1"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
+    </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/earth"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
-                    android:layout_marginBottom="60dp"
-                    android:contentDescription="@string/game_map"
-                    android:onClick="onLvl1Click"
-                    android:src="@drawable/gm_earth"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RatingBar
-                    android:id="@+id/lvl1_stars"
-                    style="@style/RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/earth"
-                    app:layout_constraintStart_toStartOf="@id/earth"
-                    app:layout_constraintTop_toBottomOf="@id/earth" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <HorizontalScrollView-->
+<!--        android:id="@+id/horizontalScrollView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:scrollbarSize="0dp"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lvl2"
-                android:layout_width="150dp"
-                android:layout_height="match_parent">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
 
-                <ImageView
-                    android:id="@+id/moon"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:contentDescription="@string/game_map"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.060000002"
-                    app:srcCompat="@drawable/gm_moon"
-                    tools:ignore="MissingConstraints" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/lvl1"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="match_parent">-->
 
-                <RatingBar
-                    android:id="@+id/lvl2_stars"
-                    style="@style/RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/moon"
-                    app:layout_constraintStart_toStartOf="@+id/moon"
-                    app:layout_constraintTop_toBottomOf="@+id/moon" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/earth"-->
+<!--                    android:layout_width="125dp"-->
+<!--                    android:layout_height="125dp"-->
+<!--                    android:layout_marginBottom="60dp"-->
+<!--                    android:contentDescription="@string/game_map"-->
+<!--                    android:onClick="onLvl1Click"-->
+<!--                    android:src="@drawable/gm_earth"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <RatingBar-->
+<!--                    android:id="@+id/lvl1_stars"-->
+<!--                    style="@style/RatingBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/earth"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/earth"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/earth" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lvl3"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/lvl2"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="match_parent">-->
 
-                <ImageView
-                    android:id="@+id/mars"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:contentDescription="@string/game_map"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/gm_mars" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/moon"-->
+<!--                    android:layout_width="65dp"-->
+<!--                    android:layout_height="65dp"-->
+<!--                    android:contentDescription="@string/game_map"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.060000002"-->
+<!--                    app:srcCompat="@drawable/gm_moon"-->
+<!--                    tools:ignore="MissingConstraints" />-->
 
-                <RatingBar
-                    android:id="@+id/lvl3_stars"
-                    style="@style/RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/mars"
-                    app:layout_constraintStart_toStartOf="@+id/mars"
-                    app:layout_constraintTop_toBottomOf="@+id/mars" />
+<!--                <RatingBar-->
+<!--                    android:id="@+id/lvl2_stars"-->
+<!--                    style="@style/RatingBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/moon"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/moon"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/moon" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lvl4"
-                android:layout_width="400dp"
-                android:layout_height="match_parent">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/lvl3"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
 
-                <ImageView
-                    android:id="@+id/red_planet"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:contentDescription="@string/game_map"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.26"
-                    app:srcCompat="@drawable/gm_red_planet" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/mars"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:contentDescription="@string/game_map"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:srcCompat="@drawable/gm_mars" />-->
 
-                <RatingBar
-                    android:id="@+id/lvl4_stars"
-                    style="@style/RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/red_planet"
-                    app:layout_constraintStart_toStartOf="@+id/red_planet"
-                    app:layout_constraintTop_toBottomOf="@+id/red_planet" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <RatingBar-->
+<!--                    android:id="@+id/lvl3_stars"-->
+<!--                    style="@style/RatingBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/mars"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/mars"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/mars" />-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lvl5"
-                android:layout_width="400dp"
-                android:layout_height="match_parent">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                <RatingBar
-                    android:id="@+id/lvl5_stars"
-                    style="@style/RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/saturn"
-                    app:layout_constraintStart_toStartOf="@+id/saturn"
-                    app:layout_constraintTop_toBottomOf="@+id/saturn" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/lvl4"-->
+<!--                android:layout_width="400dp"-->
+<!--                android:layout_height="match_parent">-->
 
-                <ImageView
-                    android:id="@+id/saturn"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:contentDescription="@string/game_map"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.25"
-                    app:srcCompat="@drawable/gm_saturn" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                    android:id="@+id/red_planet"-->
+<!--                    android:layout_width="250dp"-->
+<!--                    android:layout_height="250dp"-->
+<!--                    android:contentDescription="@string/game_map"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.26"-->
+<!--                    app:srcCompat="@drawable/gm_red_planet" />-->
 
-        </LinearLayout>
-    </HorizontalScrollView>
+<!--                <RatingBar-->
+<!--                    android:id="@+id/lvl4_stars"-->
+<!--                    style="@style/RatingBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/red_planet"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/red_planet"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/red_planet" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/lvl5"-->
+<!--                android:layout_width="400dp"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <RatingBar-->
+<!--                    android:id="@+id/lvl5_stars"-->
+<!--                    style="@style/RatingBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/saturn"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/saturn"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/saturn" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/saturn"-->
+<!--                    android:layout_width="250dp"-->
+<!--                    android:layout_height="250dp"-->
+<!--                    android:contentDescription="@string/game_map"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.25"-->
+<!--                    app:srcCompat="@drawable/gm_saturn" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        </LinearLayout>-->
+<!--    </HorizontalScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

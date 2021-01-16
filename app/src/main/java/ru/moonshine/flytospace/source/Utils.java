@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,8 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import ru.moonshine.flytospace.model.Level;
 import ru.moonshine.flytospace.model.Task;
 
 
@@ -106,10 +109,12 @@ public class Utils {
                                     if (subInEntry) {
                                         answers.add(Integer.parseInt(textValue));
                                         subInEntry = false;
+
                                     }
                                     break;
                                 case "answers":
                                     currentTask.setAnswers(answers);
+                                    answers = new ArrayList<>();
                                     break;
                                 case "equation":
                                     if (subInEntry) {
@@ -119,6 +124,7 @@ public class Utils {
                                     break;
                                 case "equations":
                                     currentTask.setEquations(equations);
+                                    equations = new ArrayList<>();
                                     break;
                                 default:
                                     break;
