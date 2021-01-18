@@ -1,5 +1,21 @@
 <tasks>
     <task id="1" type="EASY">
+        <text>Изначально в космос запустили 2 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
+        <style>ROCKET</style>
+        <equations>
+            <equation>
+                2+1=?
+            </equation>
+        </equations>
+        <answers>
+            <answer isTrue="0">4</answer>
+            <answer isTrue="1">3</answer>
+            <answer isTrue="0">5</answer>
+            <answer isTrue="0">2</answer>
+        </answers>
+    </task>
+
+    <task id="2" type="EASY">
         <text>Изначально в космос запустили 3 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
         <style>ROCKET</style>
         <equations>
@@ -8,31 +24,15 @@
             </equation>
         </equations>
         <answers>
-            <answer isTrue="1">4</answer>
-            <answer isTrue="0">3</answer>
+            <answer isTrue="0">4</answer>
+            <answer isTrue="1">3</answer>
             <answer isTrue="0">5</answer>
             <answer isTrue="0">2</answer>
         </answers>
     </task>
 
-    <task id="2" type="EASY">
-        <text>Изначально в космос запустили 2 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
-        <style>ROCKET</style>
-        <equations>
-            <equation>
-                1+2=?
-            </equation>
-        </equations>
-        <answers>
-            <answer isTrue="0">1</answer>
-            <answer isTrue="1">3</answer>
-            <answer isTrue="0">2</answer>
-            <answer isTrue="0">4</answer>
-        </answers>
-    </task>
-
     <task id="3" type="EASY">
-        <text>Изначально в космос запустили 2 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
+        <text>Изначально в космос запустили 4 ракеты. 2 ракеты сломались. Сколько ракет долетело до космоса?</text>
         <style>ROCKET</style>
         <equations>
             <equation>
@@ -40,46 +40,14 @@
             </equation>
         </equations>
         <answers>
-            <answer isTrue="0">3</answer>
-            <answer isTrue="0">1</answer>
             <answer isTrue="0">4</answer>
-            <answer isTrue="1">2</answer>
-        </answers>
-    </task>
-
-    <task id="4" type="EASY">
-        <text>Изначально в космос запустили 2 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
-        <style>ROCKET</style>
-        <equations>
-            <equation>
-                2+3=?
-            </equation>
-        </equations>
-        <answers>
+            <answer isTrue="0">3</answer>
             <answer isTrue="1">5</answer>
             <answer isTrue="0">2</answer>
-            <answer isTrue="0">3</answer>
-            <answer isTrue="0">4</answer>
         </answers>
     </task>
 
-    <task id="5" type="EASY">
-        <text>Изначально в космос запустили 2 ракеты, позже запустили еще одну ракету. Сколько всего запустили ракет?</text>
-        <style>ROCKET</style>
-        <equations>
-            <equation>
-                5-3=?
-            </equation>
-        </equations>
-        <answers>
-            <answer isTrue="0">1</answer>
-            <answer isTrue="0">3</answer>
-            <answer isTrue="1">2</answer>
-            <answer isTrue="0">4</answer>
-        </answers>
-    </task>
-
-    <task id="6" type="MEDIUM">
+    <task id="4" type="MEDIUM">
         <text></text>
         <style>ROCKET</style>
         <equations>

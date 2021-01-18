@@ -4,7 +4,7 @@ package ru.moonshine.flytospace.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +45,7 @@ public class LevelsAdapter extends RecyclerView.Adapter<LevelsAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -74,6 +75,17 @@ public class LevelsAdapter extends RecyclerView.Adapter<LevelsAdapter.ViewHolder
 //        }
 
         // Установка ID уровня
+
+        String taskType = level.task.getTaskType();
+        if (taskType.equals("EASY")) {
+            holder.levelID.setTextColor(context.getResources().getColor(R.color.smoothGreen));
+        }
+        else if (taskType.equals("MEDIUM")) {
+            holder.levelID.setTextColor(context.getResources().getColor(R.color.yellow));
+        }
+        else {
+            holder.levelID.setTextColor(context.getResources().getColor(R.color.darkRed));
+        }
         holder.levelID.setText(Integer.toString(level.task.getId()));
     }
 

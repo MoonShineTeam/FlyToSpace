@@ -75,9 +75,13 @@ public class MainGameActivity extends AppCompatActivity {
         }
         if (taskType.equals("MEDIUM")) {
             levelBG.setImageDrawable(getDrawable(R.drawable.bg_green));
-
             findViewById(R.id.text_box).setVisibility(View.INVISIBLE);
         }
+        if (taskType.equals("HARD")) {
+            levelBG.setImageDrawable(getDrawable(R.drawable.bg_mountains));
+            findViewById(R.id.text_box).setVisibility(View.INVISIBLE);
+        }
+
 
         // Установка текста задания
         taskTextView = findViewById(R.id.task_easy_text_view);
