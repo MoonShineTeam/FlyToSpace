@@ -9,9 +9,14 @@
     <color name="lightBlue">#01ADEC</color>
     <color name="orange">#FEA363</color>
     <color name="red">#E93679</color>
-    <color name="black">#75000000</color>
+    <color name="black">#000000</color>
     <color name="black50">#80000000</color>
     <color name="yellow">#FFFF66</color>
     <color name="yellow50">#80B4B450</color>
     <color name="empty">#00000000</color>
+    <color name="green">#64FF4B</color>
+    <color name="smoothGreen">#50C83C</color>
+    <color name="smoothGreen50">#8050C83C</color>
+    <color name="darkRed">#FF4B4B</color>
+    <color name="darkRed50">#80FF4B4B</color>
 </resources>

@@ -134,4 +134,5 @@ public class Task implements Parcelable {
     public void setScore(int score) {
         this.score = score;
     }
+
 }

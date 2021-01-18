@@ -18,4 +18,9 @@
     <string name="tapToContinue">Нажмите на экран, чтобы начать игру…</string>
     
     <string name="equalSign">=</string>
+
+    <string name="threeStarsMessage">Отличная работа, так держать!</string>
+    <string name="twoStarsMessage">Хорошо, но можно и лучше!</string>
+    <string name="oneStarMessage">Неплохо, но ты можешь лучше!</string>
+    <string name="zeroStarsMessage">Не расстраивайся. Попробуй еще раз</string>
 </resources>
